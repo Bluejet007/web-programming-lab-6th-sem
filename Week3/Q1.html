@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Q1</title>
+</head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+<body>
+  <style>
+    .card {
+      width: 400px;
+      margin: 50px;
+      padding: 25px;
+      border-radius: 10px;
+    }
+  </style>
+  <div class="card text-center">
+    <h4>Online Quiz</h4>
+    <h6>Question: <span id="span-quesno">1</span>/5</h6>
+    <hr />
+      <h6 id="qTitle"></h6>
+    <div class="options">
+      <input id="op1" name="Quiz" type="radio">
+      <label for="op1" style="margin-right: 30px;" id="label-opt1"></label>
+
+      <input id="op2" name="Quiz" type="radio">
+      <label for="op2" id="label-opt2"></label>
+    </div>
+    <div style="padding-top: 30px;">
+      <button type="button" class="btn btn-dark" onclick="next()">Next</button>
+    </div>
+  </div>
+</body>
+<script src="./Q1.js"></script>
+
+</html>

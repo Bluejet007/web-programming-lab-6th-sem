@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Q3</title>
+</head>
+
+<body>
+  <script>
+    function grader(form) {
+      acc = 0.0;
+      i = 0;
+      for(const ch of form.children) {
+        if(ch.type == "number") {
+          acc += parseFloat(ch.value);
+          i += 1;
+        }
+      }
+
+      acc /= i;
+      console.log(acc);
+      gr = "F";
+
+      if(acc > 90)
+        gr = "A";
+      else if(acc > 80)
+        gr = "B";
+      else if(acc > 70)
+        gr = "C";
+      else if(acc > 60)
+        gr = "D";
+
+      document.getElementById("avg").textContent = "Avg: " + acc;
+      document.getElementById("grade").textContent = "Grade: " + gr;
+    }
+  </script>
+
+  <h2>Grades</h2>
+  <form>
+    <label for="maths">Maths: </label>
+    <input id="maths" type="number"><br />
+    <label for="eng">English: </label>
+    <input id="eng" type="number"><br />
+    <label for="sci">Science: </label>
+    <input id="sci" type="number"><br />
+    <label for="evs">EVS: </label>
+    <input id="evs" type="number"><br />
+    <input type="button" onclick="grader(this.form)" value="Submit">
+  </form>
+  <h3 id="avg"></h3>
+  <h3 id="grade"></h3>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Q4</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <form>
+    <input name="colour" id="red" type="radio" onclick="colourise(this.id)" />
+    <label for="red">Red</label><br />
+    <input name="colour" id="blue" type="radio" onclick="colourise(this.id)" />
+    <label for="blue">Blue</label><br />
+    <input name="colour" id="green" type="radio" onclick="colourise(this.id)" />
+    <label for="green">Green</label><br />
+  </form>
+  <div id="box" style="width: 100%; height: 640px;"></div>
+
+  <script>
+    node = document.getElementById("box");
+  
+    function colourise(col) {
+      node.style.backgroundColor = col;
+    }
+  </script>
+</body>
+
+</html>

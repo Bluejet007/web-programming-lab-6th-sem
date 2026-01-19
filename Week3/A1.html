@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>A1</title>
+</head>
+
+<body>
+  <p id="tex">FONT+++</p>
+
+  <script>
+    node = document.getElementById("tex");
+    console.log(node);
+    size = 5;
+    isUp = true;
+  
+    function pulse() {
+      if(isUp) {
+        size++;
+        node.textContent = "FONT+++";
+        node.style.color = "red";
+
+        if(size >= 40)
+          isUp = false;
+      }
+      else {
+        size--;
+        node.textContent = "FONT---";
+        node.style.color = "blue";
+
+        if(size <= 5)
+          isUp = true;
+
+      }
+
+      node.style.fontSize = size + "px";
+    }
+
+    myIntv = setInterval(pulse, 200);
+  </script>
+</body>
+
+</html>
