@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>A1</title>
+  <script src="jquery-4.0.0.min.js"></script>
+
+  <style>
+    #ball {
+      width: 50px;
+      height: 50px;
+      background-color: darkblue;
+      border-radius: 50%;
+      position: absolute;
+      left: 250px;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Bouncing Ball</h2>
+  <div id="ball"></div>
+
+  <script>
+    $(document).ready(function () {
+      function bounce() {
+        $("#ball")
+          .animate({ top: "600px" }, 800)
+          .animate({ top: "50px" }, 800, bounce);
+      }
+
+      bounce();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Q3</title>
+  <script src="jquery-4.0.0.min.js"></script>
+
+  <style>
+    .container {
+      display: flex;
+      gap: 30px;
+    }
+
+    .controls {
+      width: 300px;
+      background: lightyellow;
+      padding: 15px;
+      border: 1px solid lightgrey;
+    }
+
+    .card {
+      width: 350px;
+      height: 450px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .card img {
+      width: 250px;
+      margin-top: 20px;
+    }
+
+    textarea, select, input[type="text"] {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Birthday Card Designer</h2>
+
+  <div class="container">
+    <div class="controls">
+      <label>Choose a background color:</label>
+      <select id="bgColor">
+        <option value="yellow">Yellow</option>
+        <option value="pink">Pink</option>
+        <option value="lightblue">Light Blue</option>
+        <option value="lightgreen">Light Green</option>
+      </select>
+
+      <label>Choose a font:</label>
+      <select id="font">
+        <option value="Verdana">Verdana</option>
+        <option value="Arial">Arial</option>
+        <option value="Times New Roman">Times New Roman</option>
+      </select>
+
+      <label>Specify a numeric font size:</label>
+      <input type="text" id="fontSize" value="25">
+
+      <label>Choose a border style:</label><br>
+      <input type="radio" name="border" value="none" checked> None<br>
+      <input type="radio" name="border" value="double"> Double<br>
+      <input type="radio" name="border" value="solid"> Solid<br><br>
+
+      <input type="checkbox" id="addImage" checked>
+      Add the Default Picture<br><br>
+
+      <label>Enter the greeting text below:</label>
+      <textarea id="greeting">Happy Birthday, and many more</textarea>
+
+      <br>
+      <button id="update">Update</button>
+    </div>
+
+    <div class="card" id="card">
+      <h2 id="cardText">Happy Birthday, and many more</h2>
+      <img id="cakeImg" src="cake.png">
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(() => {
+
+      $("#update").click(() => {
+        $("#card").css("background-color", $("#bgColor").val());
+
+        $("#cardText").css({
+          "font-family": $("#font").val(),
+          "font-size": $("#fontSize").val() + "px"
+        });
+
+        let borderStyle = $("input[name='border']:checked").val();
+        if (borderStyle === "none") {
+          $("#card").css("border", "none");
+        } else {
+          $("#card").css("border", "5px " + borderStyle + " black");
+        }
+
+        $("#cardText").text($("#greeting").val());
+
+        $("#addImage").is(":checked") ? $("#cakeImg").show() : $("#cakeImg").hide();
+
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Q4</title>
+  <script src="jquery-4.0.0.min.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .box {
+      width: 300px;
+      padding: 15px;
+      border: 2px solid #333;
+    }
+
+    input[type='text'], select {
+      width: 95%;
+      margin-bottom: 10px;
+      padding: 5px;
+    }
+
+    button {
+      padding: 8px;
+      width: 100%;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Product Billing</h2>
+
+  <div class="box">
+    <label>Select Brand:</label>
+    <select id="brand">
+      <option value="Google">Google</option>
+      <option value="Samsung">Samsung</option>
+      <option value="Apple">Apple</option>
+    </select>
+
+    <label>Choose Product:</label><br />
+    <input type="checkbox" id="mobile">Mobile<br />
+    <input type="checkbox" id="laptop">Laptop<br />
+
+    <label>Enter Quantity:</label>
+    <input type="text" id="qty">
+
+    <button id="bill">Produce Bill</button>
+  </div>
+
+  <script>
+    $(document).ready(() => {
+      $("#bill").click(() => {
+        let quantity = Number($("#qty").val());
+        let total = 0;
+
+        let mobilePrice = 15000;
+        let laptopPrice = 50000;
+
+        if ($("#mobile").is(":checked")) {
+          total += mobilePrice * quantity;
+        }
+
+        if ($("#laptop").is(":checked")) {
+          total += laptopPrice * quantity;
+        }
+
+        if (total === 0 || quantity <= 0) {
+          alert("Please select product and enter valid quantity");
+        } else {
+          alert("Total Amount = ₹" + total);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

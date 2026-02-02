@@ -1,45 +1,70 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <title>Q1</title>
+  <script src='jquery-4.0.0.min.js'></script>
 </head>
 
 <body>
   <style>
     table {
       border-collapse: collapse;
+      width: 100%;
+    }
 
-      td {
-        padding: 5px;
-      }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    tr:nth-child(odd) {
+      background-color: #ffffff;
+    }
+
+    #content {
+      position: relative;
+      left: 300px;
+      width: fit-content;
+    }
+
+    img {
+      margin-top: 5px;
+      width: 500px;
     }
   </style>
-
   <h1>Slide</h1>
-  <form>
+
+  <button id='slideBtn'>Move Left</button>
+
+  <div id='content'>
     <table border>
       <tr>
         <td>Name</td>
         <td>Course</td>
-        <td>Opt-in Preferences</td>
+        <td>Preference</td>
       </tr>
       <tr>
-        <td>Name</td>
-        <td>Course</td>
-        <td>Opt-in Preferences</td>
+        <td>Alice</td>
+        <td>BCA</td>
+        <td>Email</td>
       </tr>
       <tr>
-        <td>Name</td>
-        <td>Course</td>
-        <td>Opt-in Preferences</td>
+        <td>Bob</td>
+        <td>BSc</td>
+        <td>SMS</td>
       </tr>
     </table>
 
-    <hr />
+    <img src='./img.png' alt='Sample Image'>
+  </div>
 
-    <img src="./img.png" />
-  </form>
+  <script>
+    $(document).ready(() => {
+      $('#slideBtn').click(() => {
+        $('#content').animate(
+          { left: '0px' }, 1000);
+      });
+    });
+  </script>
+
 </body>
-
 </html>
