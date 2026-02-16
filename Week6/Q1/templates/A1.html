@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bare Minimum Django</title>
+</head>
+<body>
+  <h2>Input Form</h2>
+  <form method="post">
+    {% csrf_token %}
+    <input type="text" name="name" placeholder="Your Name" value="{{ name }}"><br><br>
+    <textarea name="message" placeholder="Your Message">{{ message }}</textarea><br><br>
+
+    <strong>Formatting:</strong><br>
+    <input type="checkbox" name="bold"> Bold
+    <input type="checkbox" name="italic"> Italic
+    <input type="checkbox" name="underline"> Underline<br><br>
+
+    <strong>Color:</strong><br>
+    <input type="radio" name="color" value="red"> Red
+    <input type="radio" name="color" value="blue"> Blue
+    <input type="radio" name="color" value="green"> Green
+    <input type="radio" name="color" value="black" checked> Black<br><br>
+
+    <button type="submit" name="display">Display Message</button>
+    <button type="submit" name="clear">Clear</button>
+    <button type="submit" name="exit">Exit</button>
+  </form>
+
+  <hr>
+  <h3>Output Label:</h3>
+  <p style="{{ style }}">{{ result }}</p>
+</body>
+</html>

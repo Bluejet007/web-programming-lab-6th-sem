@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Q3</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; padding: 50px; }
+    nav { margin-bottom: 30px; }
+    nav a { margin: 0 15px; text-decoration: none; color: blue; font-weight: bold; }
+    .cover-img { width: 200px; border: 2px solid #000; }
+    .content-box { border: 1px solid #ccc; padding: 20px; display: inline-block; min-width: 300px; }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a href="/metadata/">Metadata</a>
+    <a href="/reviews/">Reviews</a>
+    <a href="/publisher/">Publisher Info</a>
+  </nav>
+
+  <div class="content-box">
+    <h1>{{ book.title }}</h1>
+    <p>By {{ book.author }}</p>
+    <img src="{{ book.cover_url }}" alt="Cover" class="cover-img">
+    <ul>
+      {% for key, value in book.metadata.items %}
+        <li><strong>{{ key }}:</strong> {{ value }}</li>
+      {% endfor %}
+    </ul>
+    <h2>Reader Reviews</h2>
+    <ul>
+      {% for review in book.reviews %}
+        <li>"{{ review }}"</li>
+      {% endfor %}
+    </ul>
+    <h2>Publisher Information</h2>
+    <p>{{ book.publisher }}</p>
+  </div>
+
+</body>
+</html>

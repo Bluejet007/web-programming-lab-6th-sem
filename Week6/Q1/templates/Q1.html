@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Calculator</title>
+</head>
+
+<body>
+  <h1>Calculator</h1>
+  <form method="POST">
+    {% csrf_token %}
+    <label>X:</label>
+    <input type="number" name="n1" value="{{ n1 }}" /><br />
+    <label>Y:</label>
+    <input type="number" name="n2" value="{{ n2 }}" /><br />
+    <select name="op">
+      <option value="add" selected>+</option>
+      <option value="sub">-</option>
+      <option value="mul">*</option>
+      <option value="div">/</option>
+    </select>
+    <button type="submit">=</button>
+  </form>
+
+  {% if res is not None %}
+  <h2>Result: {{ res }}</h2>
+  {% endif %}
+</body>
+
+</html>
