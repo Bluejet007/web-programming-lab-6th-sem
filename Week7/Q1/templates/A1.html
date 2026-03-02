@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>A1</title>
+</head>
+<body>
+  <h1>Select Items</h1>
+
+  <form method="POST">
+    {% csrf_token %}
+    <div>
+      {{ form.as_p }}
+    </div>
+    <button type="submit">Add Item</button>
+  </form>
+
+  {% if selected_items %}
+    <h2>Selected Items</h2>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Item Name</th>
+          <th>Item Price</th>
+        </tr>
+    </thead>
+    <tbody>
+      {% for item, price in selected_items %}
+        <tr>
+          <td>{{ item }}</td>
+          <td>{{ price }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
+</body>
+
+</html>
