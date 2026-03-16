@@ -1,0 +1,8 @@
+<h2>Order Details</h2>
+<form method="post">
+    {% csrf_token %}
+    <p><b>Select Brand:</b><br> {{ form.brand }}</p>
+    <p><b>Select Category:</b><br> {{ form.items }}</p>
+    <p><b>Quantity:</b><br> {{ form.quantity }}</p>
+    <button type="submit">Produce Bill</button>
+</form>

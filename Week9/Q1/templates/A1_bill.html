@@ -1,0 +1,9 @@
+<h2>Invoice Summary</h2>
+<hr>
+<p><strong>Brand:</strong> {{ brand }}</p>
+<p><strong>Items Ordered:</strong> {{ items }}</p>
+<p><strong>Quantity:</strong> {{ quantity }}</p>
+<hr>
+<h3>Total Amount: ₹{{ total }}</h3>
+<br>
+<a href="{% url 'A1' %}">Generate New Bill</a>

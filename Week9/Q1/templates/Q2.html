@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+    {% if not voted %}
+        <h2>Book Review</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">VOTE</button>
+        </form>
+    {% else %}
+        <h2>Poll Results</h2>
+        <ul>
+            <li>Good: <strong>{{ good_pct }}%</strong></li>
+            <li>Satisfactory: <strong>{{ satisfactory_pct }}%</strong></li>
+            <li>Bad: <strong>{{ bad_pct }}%</strong></li>
+        </ul>
+        <a href="">Vote Again</a>
+    {% endif %}
+</body>
+</html>
