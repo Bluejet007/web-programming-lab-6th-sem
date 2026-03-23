@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Q2</title>
+</head>
+<body>
+    <h2>Insert into WORKS Table</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+
+    <br>
+    <a href="search/">Search Company</a>
+</body>
+</html>

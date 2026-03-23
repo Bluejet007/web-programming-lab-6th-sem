@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>A1</title>
+</head>
+<body>
+    <h2>Select Institute</h2>
+
+    <select size="5">
+        {% for institute in institutes %}
+            <option value="{{ institute.institute_id }}">
+                {{ institute.name }}
+            </option>
+        {% endfor %}
+    </select>
+
+</body>
+</html>
