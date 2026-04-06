@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Books</title>
+</head>
+<body>
+
+<h2>Add Book</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
+
+<hr>
+
+<h2>Book List</h2>
+
+<ul>
+    {% for book in books %}
+        <li>
+            <strong>{{ book.title }}</strong> ({{ book.publication_date }})<br>
+            Publisher: {{ book.publisher.name }}<br>
+            Authors:
+            <ul>
+                {% for author in book.authors.all %}
+                    <li>{{ author.first_name }} {{ author.last_name }}</li>
+                {% endfor %}
+            </ul>
+        </li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>

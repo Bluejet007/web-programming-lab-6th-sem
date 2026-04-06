@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Form</title>
+</head>
+<body>
+
+<h2>Enter Student Details</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+</form>
+
+<hr>
+
+<h2>Student List</h2>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Course</th>
+        <th>Date of Birth</th>
+    </tr>
+
+    {% for s in students %}
+    <tr>
+        <td>{{ s.student_id }}</td>
+        <td>{{ s.name }}</td>
+        <td>{{ s.course }}</td>
+        <td>{{ s.dob }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="4">No students added</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
